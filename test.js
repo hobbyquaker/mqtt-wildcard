@@ -2,67 +2,24 @@ const mw = require('./index.js');
 
 require('should');
 
-describe('argument validation', () => {
-    it('should throw an error if argument topic is not of type string', () => {
-        (() => {
-            mw(null);
-        }).should.throw();
-    });
-    it('should throw an error if argument wildcard is not of type string', () => {
-        (() => {
-            mw('test', null);
-        }).should.throw();
-    });
-    it('should throw an error for invalid # usage', () => {
-        (() => {
-            mw('test', 'test/#/test');
-        }).should.throw();
-    });
-    it('should throw an error for invalid # usage', () => {
-        (() => {
-            mw('test', 'test#');
-        }).should.throw();
-    });
-    it('should throw an error for invalid + usage', () => {
-        (() => {
-            mw('test', '+test');
-        }).should.throw();
-    });
-    it('should throw an error for invalid + usage', () => {
-        (() => {
-            mw('test', 'test+');
-        }).should.throw();
-    });
-    it('should throw an error for invalid + usage', () => {
-        (() => {
-            mw('test', 'test+test');
-        }).should.throw();
-    });
-    it('should throw an error for invalid + usage', () => {
-        (() => {
-            mw('test', 'test/+test');
-        }).should.throw();
-    });
-    it('should throw an error for invalid + usage', () => {
-        (() => {
-            mw('test', 'test+/test');
-        }).should.throw();
-    });
-    it('should throw an error if # appears in topic', () => {
-        (() => {
-            mw('test/#', 'test/123');
-        }).should.throw();
-    });
-    it('should throw an error if + appears in topic', () => {
-        (() => {
-            mw('test/+', 'test/123');
-        }).should.throw();
-    });
-});
-
 describe('trivial matching', () => {
     it('should return true when topic equals wildcard', () => {
         mw('test/123', 'test/123').should.equal(true);
+    });
+});
+
+describe('mismatching', () => {
+    it('should return false', () => {
+        mw('test/test/test', 'test/test').should.equal(false);
+    });
+    it('should return false', () => {
+        mw('test/test/test/test', 'test/test').should.equal(false);
+    });
+    it('should return false', () => {
+        mw('test/test', 'test/test/test').should.equal(false);
+    });
+    it('should return false', () => {
+        mw('test/test', 'test/test/test/test').should.equal(false);
     });
 });
 

@@ -9,12 +9,12 @@
 
 > Match a MQTT Topic against Wildcards
 
+
 ## Usage
 
 `npm install mqtt-wildcard`
 
-_boolean_ **match(**_string_ **topic,**_string_ **wildcard)**
-
+_boolean_ function **(**_string_ **topic,** _string_**wildcard)**
 
 ```javascript
 const mw = require('mqtt-wildcard');
@@ -24,6 +24,7 @@ mw('test/foo/bar', 'test/#'); // true
 
 mw('test/foo/bar', 'test/nope/bar'); // false
 ```
+
 
 ## License
 

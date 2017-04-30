@@ -1,6 +1,6 @@
 {
   "name": "mqtt-wildcard",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Match a MQTT Topic against Wildcards",
   "main": "index.js",
   "scripts": {
