@@ -1,0 +1,37 @@
+{
+  "name": "mqtt-wildcard",
+  "version": "1.0.0",
+  "description": "Match a MQTT Topic against Wildcards",
+  "main": "index.js",
+  "scripts": {
+    "test": "camo-purge ; xo --space 4 --ignore test.js && node_modules/.bin/nyc node_modules/.bin/mocha ./test.js && node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls --force"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hobbyquaker/mqtt-wildcard.git"
+  },
+  "keywords": [
+    "mqtt",
+    "topic",
+    "wildcard",
+    "pattern",
+    "match"
+  ],
+  "author": "Sebastian Raff <hq@ccu.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hobbyquaker/mqtt-wildcard/issues"
+  },
+  "homepage": "https://github.com/hobbyquaker/mqtt-wildcard#readme",
+  "devDependencies": {
+    "camo-purge": "latest",
+    "coveralls": "latest",
+    "mocha": "latest",
+    "nyc": "latest",
+    "should": "latest",
+    "xo": "latest"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}
