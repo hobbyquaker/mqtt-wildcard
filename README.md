@@ -7,7 +7,7 @@
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![License][mit-badge]][mit-url]
 
-> Match a topic against a MQTT wildcard
+> Match a MQTT Topic against Wildcards
 
 ## Usage
 
@@ -19,10 +19,10 @@ _boolean_ **match(**_string_ **topic,**_string_ **wildcard)**
 ```javascript
 const mw = require('mqtt-wildcard');
 
-mw.match('test/foo/bar', 'test/+/bar'); // true
-mw.match('test/foo/bar', 'test/#'); // true
+mw('test/foo/bar', 'test/+/bar'); // true
+mw('test/foo/bar', 'test/#'); // true
 
-mw.match('test/foo/bar', 'test/nope/bar'); // false
+mw('test/foo/bar', 'test/nope/bar'); // false
 ```
 
 ## License
