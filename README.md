@@ -16,9 +16,13 @@
 
 _mixed_ function **(**_string_ **topic,** _string_ **wildcard)**
 
+Returns `null` if not matched, otherwise an array containing the wildcards contents will be returned.
+
+Examples:
 ```javascript
 const mw = require('mqtt-wildcard');
 
+mw('test/foo/bar', 'test/foo/bar'); // []
 mw('test/foo/bar', 'test/+/bar'); // ['foo']
 mw('test/foo/bar', 'test/#'); // ['foo/bar']
 mw('test/foo/bar/baz', 'test/+/#'); // ['foo', 'bar/baz']
