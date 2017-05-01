@@ -1,6 +1,8 @@
 module.exports = (topic, wildcard) => {
-    if (topic === wildcard) {
-        return true;
+    const res = [];
+
+    if ((topic === wildcard) && (wildcard.indexOf('+') === -1) && (wildcard.indexOf('#') === -1)) {
+        return res;
     }
 
     const t = String(topic).split('/');
@@ -9,13 +11,16 @@ module.exports = (topic, wildcard) => {
     const lw = w.length;
 
     let i = 0;
-
     for (; i < lt; i++) {
         if (t[i] !== w[i] && w[i] !== '+' && w[i] !== '#') {
-            return false;
+            return null;
+        } else if (w[i] === '+') {
+            res.push(t[i]);
         } else if (w[i] === '#') {
-            return true;
+            res.push(t.slice(i).join('/'));
+            return res;
         }
     }
-    return i === lw;
+
+    return i === lw ? res : null;
 };

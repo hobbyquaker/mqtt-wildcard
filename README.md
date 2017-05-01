@@ -14,15 +14,18 @@
 
 `npm install mqtt-wildcard`
 
-_boolean_ function **(**_string_ **topic,** _string_**wildcard)**
+_mixed_ function **(**_string_ **topic,** _string_ **wildcard)**
 
 ```javascript
 const mw = require('mqtt-wildcard');
 
-mw('test/foo/bar', 'test/+/bar'); // true
-mw('test/foo/bar', 'test/#'); // true
+mw('test/foo/bar', 'test/+/bar'); // ['foo']
+mw('test/foo/bar', 'test/#'); // ['foo/bar']
+mw('test/foo/bar/baz', 'test/+/#'); // ['foo', 'bar/baz']
+mw('test/foo/bar/baz', 'test/+/+/baz'); // ['foo', 'bar']
 
-mw('test/foo/bar', 'test/nope/bar'); // false
+mw('test/foo/bar', 'test/+'); // null
+mw('test/foo/bar', 'test/nope/bar'); // null
 ```
 
 
