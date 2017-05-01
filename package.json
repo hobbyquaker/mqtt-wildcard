@@ -1,10 +1,10 @@
 {
   "name": "mqtt-wildcard",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Match a MQTT Topic against Wildcards",
   "main": "index.js",
   "scripts": {
-    "test": "camo-purge ; xo --space 4 --ignore test.js && node_modules/.bin/nyc node_modules/.bin/mocha ./test.js && node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls --force"
+    "test": "camo-purge ; xo --space 4 --ignore test.js --ignore benchmark.js && node_modules/.bin/nyc node_modules/.bin/mocha ./test.js && node_modules/.bin/nyc report --reporter=text-lcov | node_modules/.bin/coveralls --force"
   },
   "repository": {
     "type": "git",
