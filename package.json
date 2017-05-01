@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/hobbyquaker/mqtt-wildcard#readme",
   "devDependencies": {
+    "benchmark": "latest",
     "camo-purge": "latest",
     "coveralls": "latest",
     "mocha": "latest",
