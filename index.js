@@ -12,13 +12,13 @@ module.exports = (topic, wildcard) => {
 
     let i = 0;
     for (; i < lt; i++) {
-        if (t[i] !== w[i] && w[i] !== '+' && w[i] !== '#') {
-            return null;
-        } else if (w[i] === '+') {
+        if (w[i] === '+') {
             res.push(t[i]);
         } else if (w[i] === '#') {
             res.push(t.slice(i).join('/'));
             return res;
+        } else if (w[i] !== t[i]) {
+            return null;
         }
     }
 
