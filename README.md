@@ -14,7 +14,7 @@
 
 `npm install mqtt-wildcard`
 
-_mixed_ function **(**_string_ **topic,** _string_ **wildcard)**
+_array|null_ function **(**_string_ **topic,** _string_ **wildcard)**
 
 Returns `null` if not matched, otherwise an array containing the wildcards contents will be returned.
 
