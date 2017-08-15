@@ -22,5 +22,9 @@ module.exports = (topic, wildcard) => {
         }
     }
 
-    return i === lw ? res : null;
+    if (w[i] === '#') {
+        i += 1;
+    }
+
+    return (i === lw) ? res : null;
 };

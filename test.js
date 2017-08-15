@@ -46,9 +46,6 @@ describe('wildcard # matching', () => {
         mw('test/test/test', '#').should.arrayEqual(['test/test/test']);
     });
     it('should return the correct array', () => {
-        mw('test/', 'test/#').should.arrayEqual(['']);
-    });
-    it('should return the correct array', () => {
         mw('test/test', 'test/#').should.arrayEqual(['test']);
     });
     it('should return the correct array', () => {
@@ -57,6 +54,27 @@ describe('wildcard # matching', () => {
     it('should return the correct array', () => {
         mw('test/test/test', 'test/test/#').should.arrayEqual(['test']);
     });
+    it('should return the correct array', () => {
+        mw('/', '/#').should.arrayEqual(['']);
+    });
+    it('should return the correct array', () => {
+        mw('/test', '/#').should.arrayEqual(['test']);
+    });
+    it('should return the correct array', () => {
+        mw('/test/', '/#').should.arrayEqual(['test/']);
+    });
+    it('should return the correct array', () => {
+        mw('/test/test', '/#').should.arrayEqual(['test/test']);
+    });
+    it('should return the correct array', () => {
+        mw('test/', 'test/#').should.arrayEqual(['']);
+    });
+    it('should return correct array', () => {
+        mw('test', 'test/#').should.arrayEqual([]);
+    });
+    it('should return correct array', () => {
+        mw('test/test', 'test/test/#').should.arrayEqual([]);
+    });
 });
 
 describe('wildcard # mismatching', () => {
@@ -64,10 +82,10 @@ describe('wildcard # mismatching', () => {
         should(mw('test', '/#')).equal(null);
     });
     it('should return null', () => {
-        should(mw('test', 'test/#')).equal(null);
+        should(mw('test/test', 'muh/#')).equal(null);
     });
     it('should return null', () => {
-        should(mw('test/test', 'test/test/#')).equal(null);
+        should(mw('', 'muh/#')).equal(null);
     });
 });
 
@@ -123,26 +141,23 @@ describe('wildcard +/# matching', () => {
     it('should return the correct array', () => {
         mw('test/test/test/test', 'test/+/+/#').should.arrayEqual(['test', 'test', 'test']);
     });
+    it('should return the correct array', () => {
+        mw('test', '+/#').should.arrayEqual(['test']);
+    });
+    it('should return the correct array', () => {
+        mw('test/test', 'test/+/#').should.arrayEqual(['test']);
+    });
+    it('should return the correct array', () => {
+        mw('test/test/test', 'test/+/test/#').should.arrayEqual(['test']);
+    });
 });
 
 describe('wildcard +/# mismatching', () => {
-    it('should return null', () => {
-        should(mw('test', '+/#')).equal(null);
-    });
-    it('should return null', () => {
-        should(mw('test/test', '+/test/#')).equal(null);
-    });
-    it('should return null', () => {
-        should(mw('test/test', 'test/+/#')).equal(null);
-    });
     it('should return null', () => {
         should(mw('test/foo/test', '+/test/#')).equal(null);
     });
     it('should return null', () => {
         should(mw('foo/test/test', 'test/+/#')).equal(null);
-    });
-    it('should return null', () => {
-        should(mw('test/test/test', 'test/+/test/#')).equal(null);
     });
     it('should return null', () => {
         should(mw('foo/test/test/test', 'test/+/+/#')).equal(null);
