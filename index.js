@@ -1,7 +1,7 @@
 module.exports = (topic, wildcard) => {
     const res = [];
 
-    if ((topic === wildcard) && (wildcard.indexOf('+') === -1) && (wildcard.indexOf('#') === -1)) {
+    if (topic === wildcard) {
         return res;
     }
 

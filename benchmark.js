@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 
