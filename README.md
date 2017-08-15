@@ -28,6 +28,9 @@ mw('test/foo/bar', 'test/#'); // ['foo/bar']
 mw('test/foo/bar/baz', 'test/+/#'); // ['foo', 'bar/baz']
 mw('test/foo/bar/baz', 'test/+/+/baz'); // ['foo', 'bar']
 
+mw('test', 'test/#'); // []
+mw('test/', 'test/#'); // ['']
+
 mw('test/foo/bar', 'test/+'); // null
 mw('test/foo/bar', 'test/nope/bar'); // null
 ```

@@ -177,6 +177,15 @@ describe('examples', () => {
     it('should return the correct array', () => {
         should(mw('test/foo/bar/baz', 'test/+/+/baz')).arrayEqual(['foo', 'bar']);
     });
+    it('should return the correct array', () => {
+        should(mw('test', 'test/#')).arrayEqual([]);
+    });
+    it('should return the correct array', () => {
+        should(mw('test/', 'test/#')).arrayEqual(['']);
+    });
+    it('should return the correct array', () => {
+        should(mw('test/foo/bar/baz', 'test/+/+/baz/#')).arrayEqual(['foo', 'bar']);
+    });
     it('should return null', () => {
         should(mw('test/foo/bar', 'test/+')).equal(null);
     });
