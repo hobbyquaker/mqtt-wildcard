@@ -1,0 +1,29 @@
+{
+  "name": "mqtt-wildcard",
+  "description": "Match a MQTT Topic against Wildcards",
+  "main": "index.js",
+  "authors": [
+    "Sebastian Raff <hq@ccu.io>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "mqtt",
+    "topic",
+    "wildcard",
+    "pattern",
+    "match"
+  ],
+  "homepage": "https://github.com/hobbyquaker/mqtt-wildcard",
+  "ignore": [
+    "**/.*",
+    ".nyc-output",
+    "coverage",
+    "node_modules",
+    "bower_components",
+    "test.js",
+    "benchmark.js",
+    "index-old.js",
+    "npm-debug.log",
+    ".travis.yml",
+  ]
+}

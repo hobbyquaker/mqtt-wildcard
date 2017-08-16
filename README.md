@@ -10,29 +10,38 @@
 > Match a MQTT Topic against Wildcards
 
 
-## Usage
+## Install and Usage
 
-`npm install mqtt-wildcard`
+```
+$ npm install mqtt-wildcard
+```
 
-_array|null_ function **(**_string_ **topic,** _string_ **wildcard)**
+```javascript
+var mqttWildcard = require('mqtt-wildcard');
+```
+
+Alternatively you can use bower to install mqtt-wildcard, AMD is also supported.
+
+
+## API
+
+_array|null_ mqttWildcard **(**_string_ **topic,** _string_ **wildcard)**
 
 Returns `null` if not matched, otherwise an array containing the wildcards contents will be returned.
 
 Examples:
 ```javascript
-const mw = require('mqtt-wildcard');
+mqttWildcard('test/foo/bar', 'test/foo/bar'); // []
+mqttWildcard('test/foo/bar', 'test/+/bar'); // ['foo']
+mqttWildcard('test/foo/bar', 'test/#'); // ['foo/bar']
+mqttWildcard('test/foo/bar/baz', 'test/+/#'); // ['foo', 'bar/baz']
+mqttWildcard('test/foo/bar/baz', 'test/+/+/baz'); // ['foo', 'bar']
 
-mw('test/foo/bar', 'test/foo/bar'); // []
-mw('test/foo/bar', 'test/+/bar'); // ['foo']
-mw('test/foo/bar', 'test/#'); // ['foo/bar']
-mw('test/foo/bar/baz', 'test/+/#'); // ['foo', 'bar/baz']
-mw('test/foo/bar/baz', 'test/+/+/baz'); // ['foo', 'bar']
+mqttWildcard('test', 'test/#'); // []
+mqttWildcard('test/', 'test/#'); // ['']
 
-mw('test', 'test/#'); // []
-mw('test/', 'test/#'); // ['']
-
-mw('test/foo/bar', 'test/+'); // null
-mw('test/foo/bar', 'test/nope/bar'); // null
+mqttWildcard('test/foo/bar', 'test/+'); // null
+mqttWildcard('test/foo/bar', 'test/nope/bar'); // null
 ```
 
 
