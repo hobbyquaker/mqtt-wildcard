@@ -32,6 +32,7 @@
         return (i === w.length) ? res : null;
     }
 
+    /* istanbul ignore next */
     if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
         module.exports = mqttWildcard;
     } else if (typeof define === 'function' && define.amd) {
