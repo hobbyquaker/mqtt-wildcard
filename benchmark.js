@@ -4,37 +4,72 @@ const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite;
 
 const mw = require('./index.js');
+const mw2 = require('./index-old.js');
 
-suite.add('wildcard match +', function () {
+suite.add('new wildcard match', function () {
+    mw('test/test/test/test', 'test/test/test/test');
+}).add('old wildcard match', function () {
+    mw2('test/test/test/test', 'test/test/test/test');
+}).add('new wildcard match +', function () {
     mw('test/test/test/test', 'test/+/test/+');
     mw('test/test/test/test', 'test/+/+/+');
     mw('test/test/test/test', 'test/+/+/test');
     mw('test/test/test/test', 'test/test/test/+');
-}).add('wildcard mismatch +', function () {
+}).add('old wildcard match +', function () {
+    mw2('test/test/test/test', 'test/+/test/+');
+    mw2('test/test/test/test', 'test/+/+/+');
+    mw2('test/test/test/test', 'test/+/+/test');
+    mw2('test/test/test/test', 'test/test/test/+');
+}).add('new wildcard mismatch +', function () {
     mw('test/test/test/test', 'test/+/muh/+');
     mw('test/test/test/test', 'test/+/+');
     mw('test/test/test/test', 'test/+/+/muh');
     mw('test/test/test/test', 'test/test/+');
-}).add('wildcard match #', function () {
+}).add('old wildcard mismatch +', function () {
+    mw2('test/test/test/test', 'test/+/muh/+');
+    mw2('test/test/test/test', 'test/+/+');
+    mw2('test/test/test/test', 'test/+/+/muh');
+    mw2('test/test/test/test', 'test/test/+');
+}).add('new wildcard match #', function () {
     mw('test/test/test/test', 'test/test/test/#');
     mw('test/test/test/test', 'test/test/#');
     mw('test/test/test/test', 'test/#');
     mw('test/test/test/test', '#');
-}).add('wildcard mismatch #', function () {
+}).add('old wildcard match #', function () {
+    mw2('test/test/test/test', 'test/test/test/#');
+    mw2('test/test/test/test', 'test/test/#');
+    mw2('test/test/test/test', 'test/#');
+    mw2('test/test/test/test', '#');
+}).add('new wildcard mismatch #', function () {
     mw('test/test/test/test', 'test/test/muh/#');
     mw('test/test/test/test', 'test/muh/#');
     mw('test/test/test/test', 'muh/#');
     mw('test/test/test/test', 'muh/#');
-}).add('wildcard match + #', function () {
+}).add('old wildcard mismatch #', function () {
+    mw2('test/test/test/test', 'test/test/muh/#');
+    mw2('test/test/test/test', 'test/muh/#');
+    mw2('test/test/test/test', 'muh/#');
+    mw2('test/test/test/test', 'muh/#');
+}).add('new wildcard match + #', function () {
     mw('test/test/test/test', 'test/+/test/#');
     mw('test/test/test/test', 'test/+/#');
     mw('test/test/test/test', 'test/+/+/#');
     mw('test/test/test/test', 'test/test/+/#');
-}).add('wildcard mismatch + #', function () {
+}).add('old wildcard match + #', function () {
+    mw2('test/test/test/test', 'test/+/test/#');
+    mw2('test/test/test/test', 'test/+/#');
+    mw2('test/test/test/test', 'test/+/+/#');
+    mw2('test/test/test/test', 'test/test/+/#');
+}).add('new wildcard mismatch + #', function () {
     mw('test/test/test/test', 'test/+/muh/#');
     mw('test/test/test/test', 'test/muh/+/#');
     mw('test/test/test/test', 'muh/+/#');
     mw('test/test/test/test', 'muh/+/#');
+}).add('old wildcard mismatch + #', function () {
+    mw2('test/test/test/test', 'test/+/muh/#');
+    mw2('test/test/test/test', 'test/muh/+/#');
+    mw2('test/test/test/test', 'muh/+/#');
+    mw2('test/test/test/test', 'muh/+/#');
 })
 
 // add listeners
