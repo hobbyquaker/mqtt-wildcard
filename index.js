@@ -1,17 +1,17 @@
-module.exports = (topic, wildcard) => {
+module.exports = function (topic, wildcard) {
     if (topic === wildcard) {
         return [];
     } else if (wildcard === '#') {
         return [topic];
     }
 
-    const res = [];
+    var res = [];
 
-    const t = String(topic).split('/');
-    const w = String(wildcard).split('/');
+    var t = String(topic).split('/');
+    var w = String(wildcard).split('/');
 
-    let i = 0;
-    for (let lt = t.length; i < lt; i++) {
+    var i = 0;
+    for (var lt = t.length; i < lt; i++) {
         if (w[i] === '+') {
             res.push(t[i]);
         } else if (w[i] === '#') {
