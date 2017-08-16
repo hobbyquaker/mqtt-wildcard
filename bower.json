@@ -24,6 +24,6 @@
     "benchmark.js",
     "index-old.js",
     "npm-debug.log",
-    ".travis.yml",
+    ".travis.yml"
   ]
 }
