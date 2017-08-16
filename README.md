@@ -25,7 +25,7 @@ Alternatively you can use bower to install mqtt-wildcard, AMD is also supported.
 
 ## API
 
-_array|null_ mqttWildcard **(**_string_ **topic,** _string_ **wildcard)**
+_array|null_ **mqttWildcard** **(**_string_ **topic,** _string_ **wildcard)**
 
 Returns `null` if not matched, otherwise an array containing the wildcards contents will be returned.
 
