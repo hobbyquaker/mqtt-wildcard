@@ -32,6 +32,8 @@
     "camo-purge": "latest",
     "coveralls": "latest",
     "mocha": "latest",
+    "mqtt-match": "^1.0.3",
+    "mqtt-pattern": "^1.2.0",
     "nyc": "latest",
     "should": "latest",
     "xo": "latest"
