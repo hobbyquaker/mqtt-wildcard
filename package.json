@@ -4,10 +4,10 @@
   "description": "Match a MQTT Topic against Wildcards",
   "main": "index.js",
   "scripts": {
-    "test": "camo-purge ; xo --space 4 --ignore test.js --ignore benchmark.js --ignore index-old.js --no-esnext && nyc mocha ./test.js && nyc report --reporter=text-lcov | coveralls --force",
+    "test": "camo-purge ; xo && nyc mocha ./test.js && nyc report --reporter=text-lcov | coveralls --force",
     "testonly": "mocha ./test.js",
-    "lint": "xo --space 4 --ignore test.js --ignore benchmark.js --ignore index-old.js --no-esnext",
-    "lintfix": "xo --space 4 --ignore test.js --ignore benchmark.js --ignore index-old.js --no-esnext --fix",
+    "lint": "xo",
+    "lintfix": "xo --fix",
     "benchmark": "./benchmark.js"
   },
   "repository": {
@@ -37,5 +37,13 @@
     "nyc": "latest",
     "should": "latest",
     "xo": "latest"
+  },
+  "xo": {
+    "space": 4,
+    "ignore": [
+      "test.js",
+      "benchmark.js"
+    ],
+    "esnext": false
   }
 }
